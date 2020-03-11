@@ -21,11 +21,11 @@ We need to generate release apk by using
 
 🔨For Cordova Build
 ```bash
-./node_modules/.bin/cordova build --release android
+$ ./node_modules/.bin/cordova build --release android
 ```
 🔨For Ionic Build
 ```
-ionic cordova build --prod --release android
+$ ionic cordova build --prod --release android
 ```
 The unsigned APK have been generated to:
 `./platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk`
@@ -37,7 +37,7 @@ You can see your path on your terminal/cli
 ## 🔑 Step 2: Generate Keystore file
 when you generate the keystore file, it'll ask these questions below, please answer those and you have to create a new password for a keystore file too.
 ```bash
-keytool -genkey -v -keystore yourappname.keystore -alias yourappname -keyalg RSA -keysize 2048 -validity 10000
+$ keytool -genkey -v -keystore yourappname.keystore -alias yourappname -keyalg RSA -keysize 2048 -validity 10000
 
 keystore password? : xxxxxxx
 What is your first and last name? :  xxxxxx
@@ -55,17 +55,17 @@ You have to move it next to the unsigned APK file.
 ## ✒️ Sign
 * *Move to the unsigned APK directory*
     ```bash
-    cd ./platforms/android/app/build/outputs/apk/release
+    $ cd ./platforms/android/app/build/outputs/apk/release
     ```
 ## Step 3: Signing your application using jarsigner
 Before executing this step, you must keep your release apk & keystore file in the same folder.
 ```xml
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore yourappname.keystore yourappname.apk yourappname
+$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore yourappname.keystore yourappname.apk yourappname
 ```
 
 ## Step 4: Zip align your apk
 ````
-zipalign -v 4 yourappname.apk yourappname-final.apk
+$ zipalign -v 4 yourappname.apk yourappname-final.apk
 ```
 **Note** If you're facing any issue like zipalign is not an internal or external command, you need to set a path for android build tools.please read this setup documentation
 [ionic-cordova](https://codesundar.com/ionic-cordova-environment-setup-for-windows-mac/)
@@ -84,11 +84,11 @@ We need to generate release apk by using
 
 For Cordova
 ```bash
-./node_modules/.bin/cordova build --release android
+$ ./node_modules/.bin/cordova build --release android
 ```
 For Ionic
 ```
-./node_modules/.bin/ionic cordova build --prod --release android
+$ ./node_modules/.bin/ionic cordova build --prod --release android
 ```
 This will generate release apk in platforms/android/build/outputs/apk/android-relase-unsigned.apk You can see your path on your terminal/cli
 !! important !! Rename your apk with yourappname.apk & move the file into the home folder
@@ -96,13 +96,13 @@ This will generate release apk in platforms/android/build/outputs/apk/android-re
 ## Step 3: Signing your application using jarsigner
 Before executing this step, you must keep your release apk & keystore file in the same folder.
 ```
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore yourappname.keystore yourappname.apk yourappname
+$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore yourappname.keystore yourappname.apk yourappname
 ```
 
 ## Step 4: Zip align your apk
 
 ```
-zipalign -v 4 yourappname.apk yourappname-final.apk
+$ zipalign -v 4 yourappname.apk yourappname-final.apk
 ```
 ## ❤️ Finally
 
