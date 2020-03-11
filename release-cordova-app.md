@@ -7,14 +7,18 @@
 * Signing your app
 * Zip align your apk
 
-## Update your App
+## How to update your App
 * Increase version number
 * Generate release build
 * Sign your apk with old keystore
 * zipalign your apk
 
 ### Let's start
-Before generating your release apk, navigate your **config.xml** & made the requried changes, such as app name, developer details, app versions. Also make sure you've removed all unwanted plugins.
+Before generating your release apk, navigate to your **config.xml** file & make the requried changes, such as 
+* app name 
+* developer details
+* app versions e.tc 
+Also make sure you've removed all unwanted plugins.
 
 ## Step 1: Generate APK in release mode
 We need to generate release apk by using
@@ -31,7 +35,6 @@ The unsigned APK have been generated to:
 `./platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk`
 
 You can see your path on your terminal/cli
-
 !! important !! Rename your apk with yourappname.apk & move the file into the home folder
 
 ## 🔑 Step 2: Generate Keystore file
@@ -47,7 +50,6 @@ What is the name of your City or Locality? :  xxxxxxx
 What is the name of your State or Province? :  xxxxx
 What is the two-letter country code for this unit? :  xxx
 ```
-
 **NOTE:** After the command above and after filling out the informations, the keystore will be generated to:
 `./[KEYSTORE_NAME].keystore`.
 You have to move it next to the unsigned APK file.
@@ -104,7 +106,7 @@ $ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore yourappname.k
 ```
 $ zipalign -v 4 yourappname.apk yourappname-final.apk
 ```
-## ❤️ Finally
+## ❤️ In Conclusion
 
-Create an acount to Google Play and upload the APK to playstore
+Create a Google Play account and upload the APK file to playstore
 
