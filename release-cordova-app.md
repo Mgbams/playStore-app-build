@@ -38,7 +38,7 @@ You can see your path on your terminal/cli
 when you generate the keystore file, it'll ask these questions below, please answer those and you have to create a new password for a keystore file too.
 ```bash
 keytool -genkey -v -keystore yourappname.keystore -alias yourappname -keyalg RSA -keysize 2048 -validity 10000
-```
+
 keystore password? : xxxxxxx
 What is your first and last name? :  xxxxxx
 What is the name of your organizational unit? :  xxxxxxxx
@@ -46,6 +46,7 @@ What is the name of your organization? :  xxxxxxxxx
 What is the name of your City or Locality? :  xxxxxxx
 What is the name of your State or Province? :  xxxxx
 What is the two-letter country code for this unit? :  xxx
+```
 
 **NOTE:** After the command above and after filling out the informations, the keystore will be generated to:
 `./[KEYSTORE_NAME].keystore`.
@@ -71,7 +72,8 @@ zipalign -v 4 yourappname.apk yourappname-final.apk
 
 **IMPORTANT** : please backup your keystore file, password & alias_name.because it's very important for next update. Incase, if you forget your password, you can't recover it :(
 
-## How to update your Ionic apps on PlayStore?
+# How to update your Ionic apps on PlayStore?
+
 If you have released the app & want to update the app from playstore for next version? follow these guidelines
 
 ## Step 1: Update the version name
@@ -81,12 +83,12 @@ Navigate to your config.xml & increase your version number
 We need to generate release apk by using
 
 For Cordova
-```
-cordova build --release android
 ```bash
+./node_modules/.bin/cordova build --release android
+```
 For Ionic
 ```
-ionic cordova build --prod --release android
+./node_modules/.bin/ionic cordova build --prod --release android
 ```
 This will generate release apk in platforms/android/build/outputs/apk/android-relase-unsigned.apk You can see your path on your terminal/cli
 !! important !! Rename your apk with yourappname.apk & move the file into the home folder
